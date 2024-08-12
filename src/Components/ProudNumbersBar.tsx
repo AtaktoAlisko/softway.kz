@@ -35,8 +35,9 @@ const StatItem = ({
   delay: number;
 }) => {
   const motionValue = useMotionValue(0);
-  const animatedValue = useTransform(motionValue, (latest) =>
-    Math.round(latest).toLocaleString()
+  const animatedValue = useTransform(
+    motionValue,
+    (latest) => `${Math.round(latest).toLocaleString()}+`
   );
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
